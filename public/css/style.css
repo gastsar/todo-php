@@ -1,0 +1,212 @@
+/*theme.css*/
+
+/* Reset default styles */
+:root {
+  --font-family: 'Roboto', sans-serif;
+  --color-primary: #8e44ad;
+  --dark: #2c3e50;
+  --background-light: #f1f1f1;
+  --text-color: #444;
+  --text-color-light: #fff;
+  --danger: #e74c3c;
+  --color-green: #2ecc71;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Hauteur minimale pour occuper tout l'écran */
+}
+
+/* Le header reste en haut */
+header {
+  background-color: #f8f9fa;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Le footer reste en bas, même si la page est courte */
+footer {
+  background-color: #343a40;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: auto;
+  /* Pousse le footer en bas */
+}
+
+main {
+  flex: 1;
+  /* Prend tout l'espace disponible entre le header et le footer */
+  padding: 20px;
+  background-color: #e9ecef;
+}
+
+#content {
+  padding: 20px;
+  display: flex;
+}
+
+.container {
+  width: 70%;
+  margin: 20% auto;
+  padding: 20px;
+  background-color: var(--background-light);
+
+}
+
+label {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  align-items: center;
+  gap: 10px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background-color: var(--color-primary);
+  color: white;
+  height: 100%;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#tasks {
+  margin-top: 20px;
+  list-style-type: none;
+  padding: 0;
+}
+
+#tasks li {
+  margin-bottom: 10px;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+#tasks li.completed {
+  text-decoration: line-through;
+}
+
+.error {
+  color: var(--danger);
+  font-weight: bold;
+  font-size: medium;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: var(--text-color);
+  font-weight: 500;
+
+  a {
+    text-decoration: none;
+
+    .modify {
+
+      background-color: var(--color-green);
+    }
+
+    .complete {
+
+      background-color: var(--color-primary);
+
+    }
+
+    .delete {
+      background-color: var(--danger);
+    }
+  }
+}
+
+.todo-item:nth-child(odd) {
+  background-color: rgba(218, 221, 205, 0.671);
+}
+
+.actions {
+  button {
+    margin-left: 10px;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    color: var(--text-color-light);
+
+  }
+
+
+}
+
+.completed {
+
+  .name {
+    text-decoration: line-through;
+  }
+
+  >.actions {
+    a {
+      text-decoration: none;
+
+      .modify {
+
+        background-color: var(--dark);
+        pointer-events: none;
+        /* Désactive tous les événements, comme le clic */
+        opacity: 0.5;
+        /* Rend le bouton semi-transparent pour simuler un état désactivé */
+        cursor: not-allowed;
+        /* Change le curseur pour indiquer que le bouton est désactivé */
+      }
+
+      .complete {
+
+        background-color: var(--dark);
+
+
+      }
+
+
+    }
+  }
+}
